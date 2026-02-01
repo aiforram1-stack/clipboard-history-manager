@@ -1,8 +1,16 @@
 # Clipboard History Manager
 
-A cross-platform clipboard history manager for macOS and Windows. Automatically captures copied text and displays it as easily accessible tiles.
+A **multi-platform** clipboard history manager for macOS and Windows. Automatically captures copied text and displays it as easily accessible tiles.
 
 Built with Electron. Minimalist black and white design.
+
+---
+
+## Screenshots
+
+![Clipboard Manager on macOS|600](assets/app-screenshot.png)
+
+_Running on macOS with the Balenciaga-inspired minimalist dark theme._
 
 ---
 
@@ -20,22 +28,32 @@ Built with Electron. Minimalist black and white design.
 ## Installation
 
 ### Prerequisites
+You need **Node.js** installed on your computer.
+- Download from: [nodejs.org](https://nodejs.org/)
 
-- Node.js 18+ (https://nodejs.org/)
+### Quick Start
 
-### Setup
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/aiforram1-stack/clipboard-history-manager.git
+   ```
 
-```bash
-git clone https://github.com/yourusername/clipboard-history-manager.git
-cd clipboard-history-manager
-npm install
-```
+2. **Go into the folder**
+   ```bash
+   cd clipboard-history-manager
+   ```
 
-### Run
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm start
-```
+4. **Run the app**
+   ```bash
+   npm start
+   ```
+
+The app will launch and appear in your system tray (menu bar).
 
 ---
 
