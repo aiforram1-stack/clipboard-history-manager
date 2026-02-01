@@ -1,12 +1,8 @@
 # Clipboard History Manager
 
-A **multi-platform** clipboard history manager for macOS and Windows. Automatically captures copied text and displays it as easily accessible tiles.
+A **simple and powerful** clipboard tool for Mac and Windows.
 
-Built with Electron. Minimalist black and white design.
-
----
-
-## Screenshots
+It remembers everything you copy (text, links, code) so you never lose anything. It runs quietly in your menu bar.
 
 ![Clipboard Manager on macOS|600](assets/app-screenshot.png)
 
@@ -16,46 +12,41 @@ _Running on macOS with the Balenciaga-inspired minimalist dark theme._
 
 ## Features
 
-- **Auto-capture** - Monitors system clipboard and captures new text automatically
-- **Tile Display** - Each copied text appears as its own card
-- **One-click Copy** - Copy button on each tile for quick re-copying
-- **Search** - Filter through your clipboard history
-- **Persistence** - History saved locally, survives app restart
-- **System Tray** - Runs in background, accessible from menu bar
+- **Never Lose a Copy** - It automatically saves everything you copy.
+- **Easy Access** - Just click the tray icon to see your history.
+- **One-Click Copy** - Click any item to copy it again.
+- **Search** - Find old clips instantly.
+- **Privacy Focused** - Everything is saved on your computer, never sent to the cloud.
 
 ---
 
-## Installation
+## How to Install and Run
 
-### Prerequisites
-You need **Node.js** installed on your computer.
-- Download from: [nodejs.org](https://nodejs.org/)
+This guide is for beginners. You will need a free tool called **Node.js** to run this app.
 
-### Quick Start
+### Step 1: Install Node.js
+If you don't have it, download and install the "LTS" version from:
+[https://nodejs.org/](https://nodejs.org/)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aiforram1-stack/clipboard-history-manager.git
-   ```
+### Step 2: Download the App
+1. Click the green **Code** button at the top of this GitHub page.
+2. Select **Download ZIP**.
+3. Unzip the downloaded file.
 
-2. **Go into the folder**
-   ```bash
-   cd clipboard-history-manager
-   ```
+### Step 3: Run the App
+**On Mac:**
+1. Open the **Terminal** app (Command + Space, type "Terminal").
+2. Type `cd ` (with a space) and drag the unzipped folder into the terminal window. Press Enter.
+3. Type `npm install` and press Enter. Wait for it to finish.
+4. Type `npm start` and press Enter.
 
-3. **Install dependencies**
-   ```bash
-   npm install
-   ```
+**On Windows:**
+1. Open the unzipped folder.
+2. Right-click inside the folder and select **Open in Terminal** (or Open PowerShell).
+3. Type `npm install` and press Enter. Wait for it to finish.
+4. Type `npm start` and press Enter.
 
-4. **Run the app**
-   ```bash
-   npm start
-   ```
-
-The app will launch and appear in your system tray (menu bar).
-
----
+The app will start! Look for the clipboard icon in your menu bar (Mac) or system tray (Windows).
 
 ## Building for Distribution
 
