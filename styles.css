@@ -1,0 +1,448 @@
+/* Clipboard History Manager - Styles */
+
+/* CSS Variables - Minimalist Black & White */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-tile: #ffffff;
+    --bg-tile-hover: #f5f5f5;
+
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-muted: #888888;
+
+    --accent-primary: #000000;
+    --accent-hover: #333333;
+
+    --border-color: #000000;
+    --border-subtle: #e0e0e0;
+    --border-hover: #000000;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    --radius-sm: 0;
+    --radius-md: 0;
+    --radius-lg: 0;
+
+    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    letter-spacing: 0.02em;
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+/* Title Bar */
+.title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 20px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    -webkit-app-region: drag;
+}
+
+.title-bar-drag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+}
+
+.title-text {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.window-controls {
+    display: flex;
+    gap: 12px;
+    -webkit-app-region: no-drag;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.control-btn:hover {
+    color: var(--text-primary);
+}
+
+.control-btn.close:hover {
+    color: var(--text-primary);
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    padding: 24px;
+    gap: 20px;
+}
+
+/* Action Bar */
+.action-bar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition-fast);
+}
+
+.search-container:focus-within .search-icon {
+    color: var(--text-primary);
+}
+
+.search-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px 0 32px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-size: 13px;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+
+.search-input:focus {
+    border-bottom-color: var(--border-color);
+}
+
+.clear-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.clear-btn:hover {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* Tiles Container */
+.tiles-container {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Custom Scrollbar - Minimal */
+.tiles-container::-webkit-scrollbar {
+    width: 2px;
+}
+
+.tiles-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tiles-container::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+}
+
+.tiles-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 16px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.empty-icon {
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.empty-state p {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+/* Clipboard Tile */
+.tile {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    background: transparent;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all var(--transition-normal);
+    animation: fadeSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tile::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-secondary);
+    transition: width var(--transition-normal);
+    z-index: -1;
+}
+
+.tile:hover::before {
+    width: 100%;
+}
+
+.tile:hover {
+    padding-left: 12px;
+}
+
+.tile-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tile-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 400;
+}
+
+.tile-meta {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.tile-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: all var(--transition-fast);
+}
+
+.tile:hover .tile-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tile-btn:hover {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.tile-btn.copy-btn.copied {
+    background: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.status-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Scrollbar */
+.tiles-container:hover::-webkit-scrollbar-thumb {
+    background: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-height: 500px) {
+    .main-content {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .tile {
+        padding: 14px 0;
+    }
+
+    .tile-text {
+        -webkit-line-clamp: 2;
+    }
+}
+
+/* Hover States */
+@media (hover: hover) {
+    .tile {
+        cursor: default;
+    }
+
+    .tile-btn {
+        cursor: pointer;
+    }
+}
